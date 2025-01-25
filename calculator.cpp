@@ -16,11 +16,11 @@ bool ReadNumber(Number& result) {
 // вообщем по сути всё из старого задания перенеслось сюда
 // добавлена логика s и l, впринципе как и предыдущие команды
 bool RunCalculatorCycle() { 
-    Number result;
+    Number total_result;
     Number num_in_memory = 0; 
     bool is_in_memory = false;
 
-    if (!ReadNumber(result)) {
+    if (!ReadNumber(total_result)) {
         return false;
     }
 
@@ -40,30 +40,30 @@ bool RunCalculatorCycle() {
             }
 
             if (expression == "+") {
-                result += curr_num;
+                total_result += curr_num;
             } else if (expression == "-") {
-                result -= curr_num;
+                total_result -= curr_num;
             } else if (expression == "*") {
-                result *= curr_num;
+                total_result *= curr_num;
             } else if (expression == "/") {
-                result /= curr_num;
+                total_result /= curr_num;
             } else if (expression == "**") {
-                result = std::pow(result, curr_num);
+                total_result = std::pow(total_result, curr_num);
             } else if (expression == ":") {
-                result = curr_num;
+                total_result = curr_num;
             }
         } else if (expression == "=") {
-            std::cout << result << std::endl;
+            std::cout << total_result << std::endl;
         } else if (expression == "c") {
-            result = 0;
+            total_result = 0;
         } else if (expression == "q") {
             return true;
         } else if (expression == "s") {
-            numInMemory = result;
+            numInMemory = total_result;
             isInMemory = true;
         } else if (expression == "l") {
             if (isInMemory) {
-                result = numInMemory;
+                total_result = numInMemory;
             } else {
                 std::cerr << "Error: Memory is empty" << std::endl;
                 return false;
