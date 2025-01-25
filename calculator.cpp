@@ -59,11 +59,11 @@ bool RunCalculatorCycle() {
         } else if (expression == "q") {
             return true;
         } else if (expression == "s") {
-            numInMemory = total_result;
-            isInMemory = true;
+            num_in_memory = total_result;
+            is_in_memory = true;
         } else if (expression == "l") {
-            if (isInMemory) {
-                total_result = numInMemory;
+            if (is_in_memory) {
+                total_result = num_in_memory;
             } else {
                 std::cerr << "Error: Memory is empty" << std::endl;
                 return false;
